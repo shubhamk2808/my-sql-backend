@@ -1,3 +1,4 @@
+require('dotenv').config()
 const bodyParser = require('body-parser')
 const express = require('express')
 require('./models')
@@ -7,6 +8,9 @@ var userContrl = require('./controllers/userController')
 
 app.use(bodyParser.json())
 
+app.get('/', (req, res) => {
+  res.status(200).json({data:'shubham'});
+})
 app.get('/users', userContrl.getUsers)
 app.get('/users/:id', userContrl.getUser)
 app.post('/users', userContrl.postUser)
